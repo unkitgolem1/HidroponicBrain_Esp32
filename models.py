@@ -10,4 +10,5 @@ class ParametrosSistema:
         self.temperatura = 0.0
         self.estado_actual = EstadoSistema.REPOSO
         self.estado_forzado = False
+        self.time = 0
 

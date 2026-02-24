@@ -1,5 +1,5 @@
 import asyncio
-from models import EstadoSistema, Parametro
+from models import EstadoSistema, ParametrosSistema
 from logic import logica_riego, comunicaciones
 from sensores import Rele, SensorTemperatura
 
@@ -9,7 +9,7 @@ async def sensor_live(sensor , estado):
     while True:
         try:
             nueva_lectura = await sensor.leer_sensor()
-            if nueva_lectura is not None:
+            if nueva_lectura is not None and len(nueva_lectura) > 0:
                 estado.temperatura = nueva_lectura[0] #ojo aqui, leer_sensor devuelve lista, chacar la clase del sensor
             else:
                 print('Advertencia, el sensor no esta dando se;al')
